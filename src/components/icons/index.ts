@@ -6,6 +6,7 @@ export { default as Edit } from "./Edit";
 export { default as Grid } from "./Grid";
 export { default as IncidenceFill } from "./IncidenceFill";
 export { default as IncidenceOut } from "./IncidenceOut";
+export { default as Isabial } from "./Isabial";
 export { default as MaterialsFill } from "./MaterialsFill";
 export { default as MaterialsOut } from "./MaterialsOut";
 export { default as Password } from "./Password";
