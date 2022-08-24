@@ -10,6 +10,16 @@ import type { UsersStackParamList } from "./Users";
 import Users from "./Users";
 import type { ProfileStackParamList } from "./Profile";
 import Profile from "./Profile";
+import {
+  IncidenceFill,
+  IncidenceOut,
+  MaterialsFill,
+  MaterialsOut,
+  UserFill,
+  UserOut,
+  UsersFill,
+  UsersOut,
+} from "../components/icons";
 
 export type TabsParamList = {
   InventoryTab: NavigatorScreenParams<InventoryStackParamList>;
@@ -27,6 +37,9 @@ const Root = () => {
         name="InventoryTab"
         component={Inventory}
         options={{
+          tabBarIcon({ focused }) {
+            return focused ? <MaterialsFill /> : <MaterialsOut />;
+          },
           title: "Inventario",
         }}
       />
@@ -34,6 +47,9 @@ const Root = () => {
         name="IncidentsTab"
         component={Incidents}
         options={{
+          tabBarIcon({ focused }) {
+            return focused ? <IncidenceFill /> : <IncidenceOut />;
+          },
           title: "Incidencias",
         }}
       />
@@ -41,6 +57,9 @@ const Root = () => {
         name="UsersTab"
         component={Users}
         options={{
+          tabBarIcon({ focused }) {
+            return focused ? <UsersFill /> : <UsersOut />;
+          },
           title: "Gestión",
         }}
       />
@@ -48,6 +67,9 @@ const Root = () => {
         name="ProfileTab"
         component={Profile}
         options={{
+          tabBarIcon({ focused }) {
+            return focused ? <UserFill /> : <UserOut />;
+          },
           title: "Perfil",
         }}
       />
