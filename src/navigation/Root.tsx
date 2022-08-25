@@ -1,4 +1,5 @@
 import React from "react";
+import { StyleSheet, View } from "react-native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import type { NavigatorScreenParams } from "@react-navigation/native";
 
@@ -30,6 +31,15 @@ export type TabsParamList = {
 
 const Tab = createMaterialBottomTabNavigator<TabsParamList>();
 
+const styles = StyleSheet.create({
+  icon: {
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
+
 const Root = () => {
   return (
     <Tab.Navigator>
@@ -37,8 +47,16 @@ const Root = () => {
         name="InventoryTab"
         component={Inventory}
         options={{
-          tabBarIcon({ focused }) {
-            return focused ? <MaterialsFill /> : <MaterialsOut />;
+          tabBarIcon({ focused, color }) {
+            return focused ? (
+              <View style={styles.icon}>
+                <MaterialsFill color={color} />
+              </View>
+            ) : (
+              <View style={styles.icon}>
+                <MaterialsOut color={color} />
+              </View>
+            );
           },
           title: "Inventario",
         }}
@@ -47,8 +65,16 @@ const Root = () => {
         name="IncidentsTab"
         component={Incidents}
         options={{
-          tabBarIcon({ focused }) {
-            return focused ? <IncidenceFill /> : <IncidenceOut />;
+          tabBarIcon({ focused, color }) {
+            return focused ? (
+              <View style={styles.icon}>
+                <IncidenceFill color={color} />
+              </View>
+            ) : (
+              <View style={styles.icon}>
+                <IncidenceOut color={color} />
+              </View>
+            );
           },
           title: "Incidencias",
         }}
@@ -57,8 +83,16 @@ const Root = () => {
         name="UsersTab"
         component={Users}
         options={{
-          tabBarIcon({ focused }) {
-            return focused ? <UsersFill /> : <UsersOut />;
+          tabBarIcon({ focused, color }) {
+            return focused ? (
+              <View style={styles.icon}>
+                <UsersFill color={color} />
+              </View>
+            ) : (
+              <View style={styles.icon}>
+                <UsersOut color={color} />
+              </View>
+            );
           },
           title: "Gestión",
         }}
@@ -67,8 +101,16 @@ const Root = () => {
         name="ProfileTab"
         component={Profile}
         options={{
-          tabBarIcon({ focused }) {
-            return focused ? <UserFill /> : <UserOut />;
+          tabBarIcon({ focused, color }) {
+            return focused ? (
+              <View style={styles.icon}>
+                <UserFill color={color} />
+              </View>
+            ) : (
+              <View style={styles.icon}>
+                <UserOut color={color} />
+              </View>
+            );
           },
           title: "Perfil",
         }}
