@@ -2,6 +2,7 @@ export { default as Add } from "./Add";
 export { default as Back } from "./Back";
 export { default as Clear } from "./Clear";
 export { default as Delete } from "./Delete";
+export { default as DeleteForever } from "./DeleteForever";
 export { default as Edit } from "./Edit";
 export { default as Grid } from "./Grid";
 export { default as IncidenceFill } from "./IncidenceFill";
