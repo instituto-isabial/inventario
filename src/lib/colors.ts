@@ -11,13 +11,16 @@ const color = {
 };
 
 const colors = {
-  text: color.black0,
+  appbar: {
+    background: color.blue2,
+  },
   navbar: {
     background: color.blue2,
     backgroundFocused: color.blue1,
     textFocused: color.black0,
     textUnfocused: color.black1,
   },
+  text: color.black0,
 };
 
 export default colors;

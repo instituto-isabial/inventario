@@ -2,9 +2,14 @@ import React from "react";
 import type { StackScreenProps } from "@react-navigation/stack";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Profile from "../pages/Profile/Profile";
-import ProfileEdit from "../pages/Profile/ProfileEdit";
-import ChangePassword from "../pages/Profile/ChangePassword";
+import {
+  ChangePasswordHeader,
+  ProfileEditHeader,
+  ProfileHeader,
+} from "./Headers";
+import Profile from "../../pages/Profile/Profile";
+import ProfileEdit from "../../pages/Profile/ProfileEdit";
+import ChangePassword from "../../pages/Profile/ChangePassword";
 
 export type ProfileStackParamList = {
   Profile: undefined;
@@ -29,18 +34,33 @@ const ProfileNavigator = () => {
     <ProfileStack.Navigator>
       <ProfileStack.Screen
         name="Profile"
-        options={{ title: "Perfil" }}
+        options={{
+          title: "Perfil",
+          header(props) {
+            return <ProfileHeader title={props.options.title ?? ""} />;
+          },
+        }}
         component={Profile}
       />
       <ProfileStack.Screen
         name="ProfileEdit"
-        options={{ title: "Editar perfil" }}
+        options={{
+          title: "Editar perfil",
+          header(props) {
+            return <ProfileEditHeader title={props.options.title ?? ""} />;
+          },
+        }}
         component={ProfileEdit}
       />
       <ProfileStack.Screen
         name="ChangePassword"
         component={ChangePassword}
-        options={{ title: "Cambiar contraseña" }}
+        options={{
+          title: "Cambiar contraseña",
+          header(props) {
+            return <ChangePasswordHeader title={props.options.title ?? ""} />;
+          },
+        }}
       />
     </ProfileStack.Navigator>
   );

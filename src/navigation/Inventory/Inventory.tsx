@@ -2,10 +2,16 @@ import React from "react";
 import type { StackScreenProps } from "@react-navigation/stack";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Inventory from "../pages/Inventory/Inventory";
-import Material from "../pages/Inventory/Material";
-import MaterialAdd from "../pages/Inventory/MaterialAdd";
-import MaterialEdit from "../pages/Inventory/MaterialEdit";
+import {
+  InventoryHeader,
+  MaterialHeader,
+  MaterialAddHeader,
+  MaterialEditHeader,
+} from "./Headers";
+import Inventory from "../../pages/Inventory/Inventory";
+import Material from "../../pages/Inventory/Material";
+import MaterialAdd from "../../pages/Inventory/MaterialAdd";
+import MaterialEdit from "../../pages/Inventory/MaterialEdit";
 
 export type InventoryStackParamList = {
   Inventory: undefined;
@@ -38,23 +44,43 @@ const InventoryNavigator = () => {
     <InventoryStack.Navigator>
       <InventoryStack.Screen
         name="Inventory"
-        options={{ title: "Inventario" }}
+        options={{
+          title: "Inventario",
+          header(props) {
+            return <InventoryHeader title={props.options.title ?? ""} />;
+          },
+        }}
         component={Inventory}
       />
       <InventoryStack.Screen
         name="Material"
         component={Material}
-        options={{ title: "Detalles del material" }}
+        options={{
+          title: "Material",
+          header(props) {
+            return <MaterialHeader title={props.options.title ?? ""} />;
+          },
+        }}
       />
       <InventoryStack.Screen
         name="MaterialAdd"
         component={MaterialAdd}
-        options={{ title: "Añadir material" }}
+        options={{
+          title: "Añadir material",
+          header(props) {
+            return <MaterialAddHeader title={props.options.title ?? ""} />;
+          },
+        }}
       />
       <InventoryStack.Screen
         name="MaterialEdit"
         component={MaterialEdit}
-        options={{ title: "Editar material" }}
+        options={{
+          title: "Editar material",
+          header(props) {
+            return <MaterialEditHeader title={props.options.title ?? ""} />;
+          },
+        }}
       />
     </InventoryStack.Navigator>
   );

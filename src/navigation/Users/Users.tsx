@@ -2,10 +2,16 @@ import React from "react";
 import type { StackScreenProps } from "@react-navigation/stack";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Users from "../pages/Users/Users";
-import User from "../pages/Users/User";
-import UserAdd from "../pages/Users/UserAdd";
-import UserEdit from "../pages/Users/UserEdit";
+import {
+  UserAddHeader,
+  UserEditHeader,
+  UserHeader,
+  UsersHeader,
+} from "./Headers";
+import Users from "../../pages/Users/Users";
+import User from "../../pages/Users/User";
+import UserAdd from "../../pages/Users/UserAdd";
+import UserEdit from "../../pages/Users/UserEdit";
 
 export type UsersStackParamList = {
   Users: undefined;
@@ -26,23 +32,43 @@ const UsersNavigator = () => {
     <UsersStack.Navigator>
       <UsersStack.Screen
         name="Users"
-        options={{ title: "Gestión de usuarios" }}
+        options={{
+          title: "Gestión de usuarios",
+          header(props) {
+            return <UsersHeader title={props.options.title ?? ""} />;
+          },
+        }}
         component={Users}
       />
       <UsersStack.Screen
         name="User"
         component={User}
-        options={{ title: "Detalles del usuario" }}
+        options={{
+          title: "Detalles",
+          header(props) {
+            return <UserHeader title={props.options.title ?? ""} />;
+          },
+        }}
       />
       <UsersStack.Screen
         name="UserAdd"
         component={UserAdd}
-        options={{ title: "Añadir usuario" }}
+        options={{
+          title: "Añadir usuario",
+          header(props) {
+            return <UserAddHeader title={props.options.title ?? ""} />;
+          },
+        }}
       />
       <UsersStack.Screen
         name="UserEdit"
         component={UserEdit}
-        options={{ title: "Editar usuario" }}
+        options={{
+          title: "Editar usuario",
+          header(props) {
+            return <UserEditHeader title={props.options.title ?? ""} />;
+          },
+        }}
       />
     </UsersStack.Navigator>
   );

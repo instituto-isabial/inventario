@@ -12,6 +12,7 @@ const theme = {
     onSurface: colors.navbar.textFocused,
     onSurfaceVariant: colors.navbar.textUnfocused,
     secondaryContainer: colors.navbar.backgroundFocused,
+    surface: colors.appbar.background,
   },
 };
 
