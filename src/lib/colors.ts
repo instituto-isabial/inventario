@@ -13,6 +13,7 @@ const color = {
 const colors = {
   appbar: {
     background: color.blue2,
+    backgroundAlt: color.white0,
   },
   navbar: {
     background: color.blue2,
