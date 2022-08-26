@@ -5,7 +5,7 @@ import type { IconProps } from "./types";
 
 function Grid({ size, color }: IconProps) {
   return (
-    <Svg width={size ?? 18} height={size ?? 18} fill="none">
+    <Svg viewBox="0 0 24 24" width={size ?? 18} height={size ?? 18} fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"

@@ -5,7 +5,7 @@ import type { IconProps } from "./types";
 
 function IncidenceFill({ size, color }: IconProps) {
   return (
-    <Svg width={size ?? 20} height={size ?? 22} fill="none">
+    <Svg viewBox="0 0 24 24" width={size ?? 20} height={size ?? 22} fill="none">
       <Path
         d="m19.67 17.17-5.3-5.3h-.99l-2.54 2.54v.99l5.3 5.3c.39.39 1.02.39 1.41 0l2.12-2.12a.996.996 0 0 0 0-1.41Z"
         fill={color ?? "#001F24"}
